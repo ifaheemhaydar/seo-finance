@@ -1410,8 +1410,8 @@ function openAddUser() {
   var html = knownUsers.map(function(u) {
     var initials = u.name.split(' ').map(function(w){return w[0]||'';}).join('').substring(0,2).toUpperCase();
     var meta = u.authType === 'google' ? (u.email + ' · Google Login') : ('PIN: ' + u.pin + ' · ' + (u.entities||'') + ' only');
-    return '<div class="user-item"><div class="user-av">'+initials+'</div>'\
-         + '<div class="user-info"><div class="user-nm">'+esc(u.name)+'</div><div class="user-meta">'+esc(meta)+'</div></div>'\
+    return '<div class="user-item"><div class="user-av">'+initials+'</div>'
+         + '<div class="user-info"><div class="user-nm">'+esc(u.name)+'</div><div class="user-meta">'+esc(meta)+'</div></div>'
          + '<span class="role-badge role-'+u.role+'">'+u.role+'</span></div>';
   }).join('');
   document.getElementById('users-detail-list').innerHTML = html;
@@ -1428,13 +1428,13 @@ function loadCompanies() {
     var ents = d.entities || [];
     var html = ents.map(function(e) {
       var dbId = '(DB ID stored in Script Properties)';
-      return '<div class="ent-card">'\
-           + '<div class="ent-card-dot" style="background:'+e.color+'"></div>'\
-           + '<div class="ent-card-info">'\
-           + '<div class="ent-card-nm">'+esc(e.name)+'</div>'\
-           + '<div class="ent-card-meta">'+e.type+' · '+e.currency+' · '+e.country+'</div>'\
-           + '<div class="ent-card-id">'+esc(e.id)+'</div>'\
-           + '</div>'\
+      return '<div class="ent-card">'
+           + '<div class="ent-card-dot" style="background:'+e.color+'"></div>'
+           + '<div class="ent-card-info">'
+           + '<div class="ent-card-nm">'+esc(e.name)+'</div>'
+           + '<div class="ent-card-meta">'+e.type+' · '+e.currency+' · '+e.country+'</div>'
+           + '<div class="ent-card-id">'+esc(e.id)+'</div>'
+           + '</div>'
            + '<div style="font-size:10px;color:var(--green)"><i class="ti ti-check"></i> Active</div></div>';
     }).join('');
     document.getElementById('co-list').innerHTML = html || empty('No entities found');
